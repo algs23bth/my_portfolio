@@ -1,5 +1,5 @@
 ---
-Logo: image/computer.png
+Logo: image/Computer-icon.png
 Tagline: My portfolio.
 Social:
     - title: Link till sidans github repo.
