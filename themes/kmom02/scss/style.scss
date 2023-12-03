@@ -1,0 +1,137 @@
+@import '../../node_modules/normalize.css/normalize';
+@import 'variables';
+@import 'custom-border';
+@import 'blockquotes';
+@import 'code';
+@import 'base-button';
+
+
+@mixin remove-link-decoration($color) {
+    a {
+        color: $color;
+        text-decoration: none;
+    }
+}
+
+@mixin outer-style {
+    $color: #fff;
+    font-family: $outer-style-font;
+    text-align: center;
+    color: $color;
+    @include remove-link-decoration($color);
+}
+
+body {
+    background-image: $background-img;
+    color: $font-color;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+
+  
+}
+
+.logo {
+    text-align: center;
+
+    img {
+        width:140px;
+        height:140px;
+    }
+}
+
+.title{
+    @include outer-style;
+    font-size:40px;
+}
+
+.footer{
+    @include outer-style;
+    background-color: #111;
+    padding:10px;
+    width: 100%;
+    margin-top: auto;
+    z-index: 1;
+
+    p {
+        font-size:25px;
+    }
+
+    i {
+        font-size: 50px;
+    }
+}
+
+.nav-container{
+    text-align: center;
+
+    nav{
+        display: inline-block;
+
+        ul li {
+            background-color: $card-color; 
+            padding: 13px; 
+            display: inline-block;
+            margin-right: 13px; 
+            font-size:20px;
+            font-family: $nav-font;
+            @include remove-link-decoration($card-font-color);
+        }
+    }
+}
+
+
+.card {
+    background-color: $card-color;
+    margin: 135px auto;
+    width: 80%; 
+    position: relative;
+    color:$card-font-color;
+    z-index: 0;
+
+    @include custom-border($leaf-border, 250, repeat, 10,5);
+
+    padding:45px;
+    
+    p {
+        font-size: 18px;
+        line-height: 1.5;
+    }   
+}
+
+
+@each $color, $value in $button-styles{
+    .button.button-#{$color} {
+        
+        @include base-button($value);
+
+        &.big {
+            @include base-button($value, $big: true);
+        }
+
+        &:hover{
+            background-color: adjust-hue($value, 50deg);
+        }
+
+        & + & {
+            margin-left: 20px; 
+        }
+
+        &.big{
+            @include base-button($value, $big:true);    
+        }
+
+    }
+}
+
+
+* {
+    box-sizing: border-box;
+}
+
+
+
+ 
+

@@ -1,0 +1,8 @@
+
+@mixin custom-border($border-img, $size, $pattern, $width, $outset) {
+    border: 10px solid transparent;
+    border-image: $border-img $size $pattern;
+    border-image-width: $width;
+    border-image-outset: $outset;
+
+}
