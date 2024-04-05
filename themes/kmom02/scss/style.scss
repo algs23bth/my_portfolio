@@ -4,6 +4,8 @@
 @import 'blockquotes';
 @import 'code';
 @import 'base-button';
+@import 'technology';
+
 
 
 @mixin remove-link-decoration($color) {
@@ -32,6 +34,8 @@ body {
 
   
 }
+
+
 
 .logo {
     text-align: center;
